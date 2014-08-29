@@ -3,15 +3,15 @@
 <head>
 	<title>Using ng-repeat Directive</title>
 </head>
-<body>
+<body data-ng-init="names=['Dave','Napur','Heedy','Shriva']">
 	
 	Name: <br />
 	<input type="text" data-ng-model="name" /> {{name}}
 
-	<div class="container" data-ng-init="names=['Dave','Napur','Heedy','Shriva']">
+	<div class="container">
 		<h3>Looping with the ng-repeat Directive</h3>
 		<ul>
-			<li data-ng-repeat="name in names">{{name}}</li>
+			<li data-ng-repeat="personName in names" data-ng-class="{last:$last, first:$first, middle:$middle}">{{$index}}-{{personName}}</li>
 		</ul>
 	</div>
 
