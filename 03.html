@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Using filters</title>
+</head>
+<body data-ng-init="customers=[{nome:'Beltrano da Silva Sauro',idade:25,cidade:'Salvador',uf:'BA'},{nome:'Fulano dos Santos',idade:21,cidade:'Feira de Santana',uf:'BA'},{nome:'Sicrano Oliveira',idade:40,cidade:'Belo Horizonte',uf:'MG'}]">
+	
+	Busca<br />
+	<input type="text" data-ng-model="nameText" /> <br />
+	<div class="texto" data-ng-show="nameText">Resultados para: <strong>{{nameText}}</strong></div>
+	<div class="container">
+		<h3>Looping with the ng-repeat Directive</h3>
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Cidade</th>
+				<th>UF</th>
+			</tr>
+			<tr data-ng-repeat="cust in customers | filter:nameText">
+				<td>{{$index}}</td>
+				<td>{{cust.nome | uppercase}}</td>
+				<td>{{cust.cidade | uppercase}}</td>
+				<td>{{cust.uf | uppercase}}</td>
+			</tr>
+		</table>
+	</div>
+
+<script src="angular.min.js"></script>	
+</body>
+</html>
