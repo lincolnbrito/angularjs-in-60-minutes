@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html data-ng-app="demoApp">
+<head>
+	<title>Modules</title>
+</head>
+<body>
+	<div class="container" data-ng-controller="SimpleController">
+		<h3>Adding a Simple Controller</h3>
+		Name: <input type="text" data-ng-model="nameText" />
+		<ul>
+			<li data-ng-repeat="cust in customers | filter:nameText">
+				{{ cust.name | uppercase }} - {{ cust.city | lowercase }}
+			</li>
+		</ul>
+	</div>
+	<script src="angular.min.js"></script>	
+	<script>
+		var demoApp = angular.module('demoApp', []);
+		
+		demoApp.controller('SimpleController', function($scope){
+			$scope.customers = [
+				{ name: 'Dave Jones', city: 'Phoenix' },
+				{ name: 'Jamie Riley', city: 'Atlanta' },
+				{ name: 'Heedy Wahlin', city: 'Chandler' },
+				{ name: 'Thomas Winter', city: 'Seatle' },
+			];
+		});
+	</script>
+</body>
+</html>
