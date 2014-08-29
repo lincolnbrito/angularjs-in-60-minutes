@@ -4,7 +4,8 @@
 	<input type="text" data-ng-model="city" /><br/>
 	<ul>
 		<li data-ng-repeat="cust in customers | filter:city | orderBy:name">
-			
+			{{ cust.name | uppercase }} - {{ cust.city | lowercase }}
 		</li>
 	</ul>
+	<a href="#/">View 1</a>
 </div>
